@@ -1,0 +1,81 @@
+/*
+ * @Description: css 系统变量
+ * @Author: cdl
+ * @Date: 2022-06-15 18:11:26
+ * @LastEditors: cdl
+ * @LastEditTime: 2022-06-18 19:42:02
+ */
+
+/* 字体
+------------------------------- */
+$--font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+	'微软雅黑', Arial, sans-serif;
+
+/* 主题色
+------------------------------- */
+$--color-primary: #c01330; // 主题色
+$--color-success: #67c23a; // 成功颜色
+$--color-warning: #e6a23c; // 警告颜色
+$--color-danger: #f56c6c; // 危险颜色
+$--color-info: #909399; // 信息颜色
+
+/* 字体颜色
+------------------------------- */
+$--text-color-primary: #383838; // 主要文字颜色
+$--text-color-regular: #606266; // 常规文字颜色
+$--text-color-secondary: #909399; // 次要文字颜色
+$--text-color-placeholder: #c0c4cc; // 站位文字颜色
+
+/* 边框颜色
+------------------------------- */
+$--border-color-base: #b2b2b2; // 一级边框颜色
+$--border-color-light: #e2e2e2; // 二级边框颜色
+$--border-color-lighter: #e2e2e2; // 三级边框颜色
+$--border-color-extra-light: #f2f6fc; // 四级边框颜色
+
+/* 背景颜色
+------------------------------- */
+$--color-white: #ffffff; // 基础白色
+$--color-black: #000000; // 基础黑色
+$--background-color-base: #f5f5f5; // 基础背景色
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+// @import '~element-ui/packages/theme-chalk/src/index';
+@import '@/assets/custom-theme/theme/index.css';
+
+/* 赋值给:root
+------------------------------- */
+:root {
+	/* 字体
+	------------------------------- */
+	--rh-font-family: #{$--font-family};
+
+	/* 主题色
+	------------------------------- */
+	--rh-color-primary: #{$--color-primary};
+	--rh-color-success: #{$--color-success};
+	--rh-color-warning: #{$--color-warning};
+	--rh-color-danger: #{$--color-danger};
+	--rh-color-info: #{$--color-info};
+
+	/* 字体颜色
+	------------------------------- */
+	--rh-text-color-primary: #{$--text-color-primary};
+	--rh-text-color-regular: #{$--text-color-regular};
+	--rh-text-color-secondary: #{$--text-color-secondary};
+	--rh-text-color-placeholder: #{$--text-color-placeholder};
+
+	/* 边框颜色
+	------------------------------- */
+	--rh-border-color: #{$--border-color-base};
+	--rh-border-color-light: #{$--border-color-light};
+	--rh-border-color-lighter: #{$--border-color-lighter};
+	--rh-border-color-extra-light: #{$--border-color-extra-light};
+
+	/* 背景颜色
+	------------------------------- */
+	--rh-color-white: #{$--color-white};
+	--rh-color-black: #{$--color-black};
+	--rh-background-color-base: #{$--background-color-base};
+}

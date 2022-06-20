@@ -1,0 +1,22 @@
+{
+    "global": {
+        "$--color-primary": "#C01330",
+        "$--color-text-primary": "#383838",
+        "$--border-color-base": "#B2B2B2",
+        "$--border-color-light": "#E2E2E2",
+        "$--background-color-base": "#F5F5F5",
+        "$--color-text-regular": "#606266"
+    },
+    "local": {
+        "$--button-default-font-color": "$--color-text-primary",
+        "$--button-font-weight": "400",
+        "$--button-font-size": "$--font-size-base",
+        "$--table-font-color": "$--color-text-primary",
+        "$--table-border-color": "$--border-color-light",
+        "$--table-header-font-color": "$--color-black",
+        "$--table-header-background-color": "#FCFCFC",
+        "$--input-font-color": "$--color-text-primary",
+        "$--tree-font-color": "$--color-text-primary",
+        "$--dialog-title-font-size": "20px"
+    }
+}

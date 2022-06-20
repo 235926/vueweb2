@@ -1,0 +1,548 @@
+/*
+ * @Description: element-ui 样修改
+ * @Author: cdl
+ * @Date: 2022-06-14 18:31:41
+ * @LastEditors: cdl
+ * @LastEditTime: 2022-06-19 16:07:27
+ */
+@import '@/assets/scss/mixins.scss';
+
+/* Menu 菜单
+------------------------------- */
+.el-menu {
+	border-right: none;
+	width: 100%;
+	height: 100%;
+
+	// el-menu 样式一
+	&.menu-style-one {
+		font-size: var(--rh-aside-font-size);
+		background-color: var(--rh-aside-bg-color);
+
+		// 字体大小/颜色
+		.el-menu-item,
+		.el-submenu__title {
+			color: var(--rh-aside-font-color);
+			font-size: var(--rh-aside-font-size);
+			display: flex;
+			align-items: center;
+		}
+
+		// 一级菜单高度
+		> .el-menu-item,
+		> .el-submenu > .el-submenu__title {
+			height: 60px;
+			line-height: 60px;
+			border-bottom: 1px solid var(--rh-border-color-light);
+		}
+
+		// 二级菜单样式
+		.child-wrap {
+			background-color: var(--rh-aside-child-bg-color);
+
+			// 子级菜单样式
+			.el-submenu {
+				.el-submenu__title {
+					height: 50px;
+					line-height: 50px;
+					border-bottom: 1px solid var(--rh-border-color-light);
+				}
+			}
+
+			// 只有二级菜单，不在递归循环下去
+			.el-menu-item {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid var(--rh-border-color-light);
+				background-color: var(--rh-aside-child-bg-color);
+			}
+		}
+
+		// 打开子级菜单样式
+		.el-submenu.is-opened {
+			.el-submenu__icon-arrow {
+				transform: rotateZ(0deg);
+			}
+		}
+
+		// 右侧箭头大小角度
+		.el-submenu__icon-arrow {
+			font-size: var(--rh-aside-font-size);
+			transform: rotate(270deg);
+			color: var(--rh-text-color-primary);
+		}
+
+		// 自定义图标样式
+		.el-icon-arrow-right {
+			position: absolute;
+			top: 50%;
+			right: 13px;
+			transform: translateY(-50%);
+			font-size: var(--rh-aside-font-size);
+			border: 1px solid transparent;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			color: var(--rh-text-color-primary);
+		}
+
+		// 选中样式
+		.el-menu-item.is-active {
+			color: var(--rh-color-primary);
+			transition: none;
+
+			.el-icon-arrow-right {
+				color: var(--rh-color-primary);
+				border-color: var(--rh-color-primary);
+			}
+		}
+
+		.svg-icon {
+			width: 16px;
+			height: 16px;
+			color: var(--rh-color-primary);
+		}
+	}
+}
+
+/* Scrollbar 滚动条
+------------------------------- */
+.el-scrollbar {
+	overflow: hidden;
+	position: relative;
+
+	.el-scrollbar__bar {
+		.el-scrollbar__thumb {
+			// 滚动条颜色跟随主题色，本地调试用
+			background: var(--rh-color-primary);
+			opacity: 1;
+		}
+	}
+
+	// x轴滚动条
+	.horizontal {
+		.el-scrollbar__wrap {
+			overflow-x: auto !important;
+			height: calc(100% + 20px); // 多出来的20px是横向滚动条默认的样式
+
+			.el-scrollbar__view {
+				white-space: nowrap;
+				display: inline-block;
+			}
+		}
+
+		// 解决 table 中滚动去不起作用的问题
+		.el-table--scrollable-x .el-table__body-wrapper {
+			overflow-x: hidden;
+		}
+	}
+}
+// 这个只有单独写出来，原生滚动条才会隐藏 src/components/SystemConfig/drawer.vue 中
+.el-scrollbar__wrap {
+	overflow: auto !important;
+	overflow-x: hidden !important;
+	max-height: 100%; // 防止页面切换时，滚动条高度不变的问题（滚动条高度非滚动条滚动高度
+}
+
+/* Button 按钮
+------------------------------- */
+.el-button {
+	font-size: 14px;
+
+	&.el-button--text {
+		color: var(--rh-text-color-primary);
+	}
+
+	& + .el-button {
+		margin-left: 20px;
+	}
+}
+
+/* Table 表格
+------------------------------- */
+.el-table {
+	font-size: 14px;
+
+	div.cell {
+		line-height: 50px;
+	}
+
+	// 表头
+	.el-table__header {
+		th {
+			padding: 13px 0;
+			font-weight: 500;
+			padding: 0;
+			height: 50px;
+		}
+	}
+
+	.el-table__body {
+		td {
+			font-weight: 400;
+			padding: 0;
+			height: 50px;
+		}
+	}
+
+	// 修改间距，让多选框居中
+	&.el-table--border .el-table__cell:first-child .cell {
+		padding: 0;
+	}
+
+	// 鼠标样式
+	&.cursor {
+		.el-table__body {
+			td {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+/* Select 选择器
+------------------------------- */
+.el-select {
+	width: 100%;
+
+	// 不带边框
+	&.border-none {
+		.el-input {
+			.el-input__inner {
+				border: none !important;
+				box-shadow: none !important;
+			}
+		}
+	}
+}
+
+/* Input 输入框
+------------------------------- */
+.el-input {
+	font-size: 14px;
+}
+
+/* Dialog 对话框
+------------------------------- */
+.el-dialog {
+	border: 1px solid var(--rh-border-color-light);
+	border-radius: 10px;
+
+	.el-dialog__header {
+		padding: 0 20px;
+		height: 60px;
+		margin-right: 0;
+		border-bottom: 1px solid var(--rh-border-color-light);
+		border-radius: 10px 10px 0 0;
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.dialog-header {
+			font-weight: 400;
+			font-size: 20px;
+		}
+	}
+
+	.el-dialog__body {
+		padding: 0;
+		overflow: hidden;
+		max-height: calc(100vh - 30vh - 120px);
+
+		> .el-scrollbar {
+			height: calc(100vh - 30vh - 120px);
+			max-height: 360px;
+
+			.el-scrollbar__view {
+				padding: 30px 20px;
+			}
+		}
+	}
+
+	.el-dialog__footer {
+		padding: 0 20px;
+		height: 60px;
+		border-radius: 0 0 10px 10px;
+		border-top: 1px solid var(--rh-border-color-light);
+		background-color: var(--rh-background-color-base);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.el-button {
+			min-width: 120px;
+			font-size: 16px;
+			font-weight: 400;
+		}
+	}
+
+	// 关闭按钮
+	.el-dialog__headerbtn {
+		width: 24px;
+		height: 24px;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+
+		.el-dialog__close {
+			border: 1px solid var(--rh-text-color-primary);
+			border-radius: 50%;
+			padding: 3px;
+			color: var(--rh-text-color-primary);
+		}
+
+		&:hover {
+			.el-dialog__close {
+				color: var(--rh-color-primary);
+				border-color: var(--rh-color-primary);
+			}
+		}
+	}
+}
+
+/* Tree 树形控件
+------------------------------- */
+.el-tree {
+	.el-tree-node {
+		// 父级的内容
+		.el-tree-node__content {
+			height: 30px;
+
+			.el-tree-node__expand-icon.expanded {
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+
+			// 未展开的节点
+			.el-tree-node__expand-icon:before {
+				content: '';
+				display: block;
+				width: 14px;
+				height: 14px;
+				background: url('@/assets/images/plus-square.png') no-repeat;
+				background-size: 100% 100%;
+			}
+
+			// 展开的节点
+			.el-tree-node__expand-icon.expanded:before {
+				background: url('@/assets/images/minus-square.png') no-repeat;
+				background-size: 100% 100%;
+			}
+
+			// 没有子级的节点
+			.el-tree-node__expand-icon.is-leaf:before {
+				background: url('@/assets/images/file.png') no-repeat;
+				background-size: 100% 100%;
+			}
+		}
+
+		// 子级的内容
+		.el-tree-node__children {
+			.el-tree-node__expand-icon.is-leaf {
+				padding: 0;
+				margin-left: 16px;
+				margin-right: 6px;
+			}
+		}
+	}
+
+	// 使用 element-plus-tree-line 插件自定义 class
+	.custom-tree-node {
+		width: 100%;
+		font-size: 14px;
+		font-weight: 400;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+
+		.folder,
+		.folder-open {
+			color: #67b5ff;
+			width: 14px;
+			height: 14px;
+			margin-right: 6px;
+		}
+
+		.label {
+			color: #666;
+			// width: calc(100% - 56px);
+			@include text-no-wrap();
+		}
+
+		.note {
+			color: var(--rh-color-primary);
+		}
+	}
+}
+
+/* Form 表单
+------------------------------- */
+.el-form {
+	.el-form-item {
+		.el-form-item__label {
+			font-weight: 400;
+			color: var(--rh-text-color-primary);
+		}
+
+		.el-form-item__content {
+			.el-input,
+			.el-select,
+			.el-input-number {
+				flex: 1;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* Divider 分割线
+------------------------------- */
+.el-divider {
+	background-color: var(--rh-border-color-light);
+}
+
+/* Drawer 抽屉
+------------------------------- */
+.el-drawer__wrapper {
+	.el-drawer__header {
+		height: 50px;
+		margin-bottom: 0;
+		padding: 15px 20px;
+		border-bottom: 1px solid var(--rh-border-color-light);
+
+		> :first-child {
+			font-size: 16px;
+			line-height: 1;
+			color: var(--rh-text-color-primary);
+			font-weight: 500;
+		}
+	}
+
+	.el-drawer__body {
+		padding: 0;
+		overflow: hidden;
+	}
+}
+
+/* Tabs 标签页
+------------------------------- */
+.el-tabs {
+	// 卡片化
+	&.el-tabs--border-card {
+		border-color: var(--rh-border-color-light);
+
+		> .el-tabs__header .el-tabs__item.is-active {
+			border-color: var(--rh-border-color-light);
+		}
+	}
+
+	// 选项卡样式 自定义样式一
+	&.el-tabs--card.el-tabs--top.tabs-style-one {
+		.el-tabs__nav-wrap {
+			padding: 0 40px;
+		}
+
+		.el-tabs__nav {
+			border: none;
+		}
+
+		.el-tabs__item {
+			min-width: 135px;
+			text-align: center;
+			border: 1px solid var(--rh-color-white);
+			border-bottom-color: var(--rh-border-color-light);
+		}
+
+		.el-tabs__item.is-active {
+			border: 1px solid var(--rh-border-color-light);
+			border-bottom-color: var(--rh-color-white);
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+		}
+	}
+}
+
+/* Breadcrumb 面包屑
+------------------------------- */
+.el-breadcrumb {
+	display: flex;
+	align-items: center;
+}
+
+/* Form 表单
+------------------------------- */
+.el-form {
+	.el-form-item {
+		.el-form-item__label {
+			font-size: 14px;
+			font-weight: 400;
+			color: var(--rh-text-color-primary);
+		}
+
+		.el-input__inner {
+			font-size: 14px;
+			font-weight: 400;
+			color: var(--rh-text-color-primary);
+		}
+
+		.el-form-item__content {
+			.el-input,
+			.el-select,
+			.el-input-number {
+				flex: 1;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	// form 样式一
+	&.form-style-one {
+		display: flex;
+		flex-wrap: wrap;
+		border-top: 1px solid var(--rh-border-color-light);
+		border-left: 1px solid var(--rh-border-color-light);
+
+		.el-form-item {
+			width: 100%;
+			margin-bottom: 0;
+			display: flex;
+		}
+
+		// 给 label 增加边框
+		.el-form-item__label {
+			border-right: 1px solid var(--rh-border-color-light);
+			border-bottom: 1px solid var(--rh-border-color-light);
+		}
+
+		.el-form-item__content {
+			flex: 1;
+			margin-left: 0 !important;
+		}
+
+		// input textarea 去除边框圆角
+		.el-input__inner,
+		.el-textarea__inner {
+			height: auto;
+			border: none;
+			border-radius: 0;
+			border-right: 1px solid var(--rh-border-color-light);
+			border-bottom: 1px solid var(--rh-border-color-light);
+		}
+	}
+}
+
+/* Alert 警告
+------------------------------- */
+.el-alert {
+	border: 1px solid;
+
+	.el-alert__description {
+		margin: 0;
+	}
+}

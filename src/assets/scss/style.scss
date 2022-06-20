@@ -1,0 +1,71 @@
+/*
+ * @Description: 页面通用样式
+ * @Author: cdl
+ * @Date: 2022-06-11 14:12:03
+ * @LastEditors: cdl
+ * @LastEditTime: 2022-06-15 13:10:53
+ */
+
+// 主体内容边框
+.page-container {
+	border: 1px solid var(--rh-border-color-light);
+	border-radius: 4px;
+
+	// 内容部分
+	.content {
+		border-radius: 0px 0px 4px 4px;
+		background-color: #fff;
+
+		.left {
+			width: 300px;
+			padding: 20px;
+			border-right: 1px solid var(--rh-border-color-light);
+
+			.el-input .el-icon {
+				color: var(--el-color-primary);
+			}
+
+			.search {
+				position: relative;
+
+				.el-input {
+					.el-input__inner {
+						border-radius: 20px;
+						padding-right: 60px;
+					}
+				}
+
+				.el-divider {
+					position: absolute;
+					top: 50%;
+					right: 55px;
+					transform: translateY(-50%);
+				}
+
+				.btn {
+					width: max-content;
+					font-size: 14px;
+					font-weight: 400;
+					color: var(--el-text-color-primary);
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					transform: translateY(-50%);
+					cursor: pointer;
+				}
+			}
+		}
+
+		.right {
+			flex: 1;
+			padding: 20px;
+			overflow: hidden;
+		}
+
+		.btn {
+			.el-button {
+				min-width: 100px;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+li {
+	font-size: 14px;
+}
+
+.clearfix:after,
+.clearfix:before {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(144, 147, 153, 0.3);
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
